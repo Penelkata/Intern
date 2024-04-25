@@ -1,0 +1,19 @@
+Task Breakdown
+
+- Break into smaller problems
+- Hardcode in the begining and switch to user input after 
+- Attempt to regularly commit to Github
+
+Subtask 1:
+1. Graphically represent the flights, each city is a node and each flight is an edge
+2. Implement the appropriate search algorithm - Breadth-First
+3. Return the travel time(1 hour for each flight) or 0 if unreachable
+
+Subtask 2:
+- Test Cases for Subtask 1 function. // TO DO
+
+Subtask 3:
+1. Graphically represent considering passenger capacities // TO DO
+2. Identify appropriate search algorithm
+3. Return the quickest time(considering the group can travel) or 0 if unreachable // TO DO
+4. Test Cases for the subtask
