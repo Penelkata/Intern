@@ -41,14 +41,34 @@ public class InternTask {
     }
 
     public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Create a list to store the flights
         List<String[]> flights = new ArrayList<>();
-        flights.add(new String[]{"SOF", "IST"});
-        flights.add(new String[]{"IST", "CMB"});
-        flights.add(new String[]{"CMB", "MLE"});
 
-        String origin = "SOF";
-        String destination = "MLE";
+        System.out.println("Flights:");
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
 
+            // Exit the loop when an empty line is encountered
+            if (line.isEmpty()) {
+                break;
+            }
+
+            // Read each line and split it based on (",")
+            String[] flight = line.split(",");
+            flights.add(flight);
+        }
+
+        System.out.println("Origin:");
+        String origin = scanner.nextLine();
+        System.out.println("Destination:");
+        String destination = scanner.nextLine();
+
+        // Calculate and display result
         System.out.println(flightsMap(flights, origin, destination));
+
+        scanner.close();
     }
 }
