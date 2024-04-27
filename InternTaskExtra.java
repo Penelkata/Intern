@@ -63,7 +63,7 @@ public class InternTaskExtra {
                 String[] flight = line.split(",");
 
                 if (flight.length != 3) {
-                    throw new ArrayIndexOutOfBoundsException("Correct format is \"Departure,Arrival,Capacity\"");
+                    throw new IllegalArgumentException("Correct format is \"Departure,Arrival,Capacity\"");
                 }
 
                 flights.add(flight);
@@ -88,7 +88,9 @@ public class InternTaskExtra {
 
             // Calculate and display result
             System.out.println(flightsMap(flights, origin, destination, Integer.toString(groupSize)));
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid group size format. Please enter a valid integer.");
+        } catch (IllegalArgumentException e) {
             System.out.println("Invalid input format: " + e.getMessage());
         }
 
