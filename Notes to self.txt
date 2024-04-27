@@ -10,10 +10,10 @@ Subtask 1:
 3. Return the travel time(1 hour for each flight) or 0 if unreachable
 
 Subtask 2:
-- Test Cases for Subtask 1 function. // TO DO
+- Test Cases for Subtask 1 function. // Completed
 
 Subtask 3:
-1. Graphically represent considering passenger capacities // TO DO
+1. Graphically represent considering passenger capacities // Completed
 2. Identify appropriate search algorithm
-3. Return the quickest time(considering the group can travel) or 0 if unreachable // TO DO
+3. Return the quickest time(considering the group can travel) or 0 if unreachable // Completed
 4. Test Cases for the subtask
