@@ -28,7 +28,7 @@ public class InternTask {
             if (!visited.contains(currentFlight)) {
                 visited.add(currentFlight);
 
-        // Get the other flights and add them to the queue
+                // Get the other flights and add them to the queue
                 List<String> otherFlights = graph.getOrDefault(currentFlight, new ArrayList<>());
                 for (String diffFlight : otherFlights) {
                     queue.offer(new String[]{diffFlight, String.valueOf(timeSoFar + 1)});
@@ -47,28 +47,41 @@ public class InternTask {
         // Create a list to store the flights
         List<String[]> flights = new ArrayList<>();
 
-        System.out.println("Flights:");
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
+        // Wrapping the code in try-catch block to catch the Exception
+        try {
+            System.out.println("Flights:");
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
 
-            // Exit the loop when an empty line is encountered
-            if (line.isEmpty()) {
-                break;
+                // Exit the loop when an empty line is encountered
+                if (line.isEmpty()) {
+                    break;
+                }
+
+                // Read each line and split it based on (",")
+                String[] flight = line.split(",");
+
+                if (flight.length != 2) {
+                    throw new ArrayIndexOutOfBoundsException("Correct format is \"Departure,Arrival\"");
+                }
+
+                flights.add(flight);
             }
 
-            // Read each line and split it based on (",")
-            String[] flight = line.split(",");
-            flights.add(flight);
+            System.out.println("Origin:");
+            String origin = scanner.nextLine();
+            System.out.println("Destination:");
+            String destination = scanner.nextLine();
+
+            // Calculate and display result
+            System.out.println(flightsMap(flights, origin, destination));
+        }catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Invalid input format: " + e.getMessage());
         }
 
-        System.out.println("Origin:");
-        String origin = scanner.nextLine();
-        System.out.println("Destination:");
-        String destination = scanner.nextLine();
-
-        // Calculate and display result
-        System.out.println(flightsMap(flights, origin, destination));
-
-        scanner.close();
+        // Ensure it closes properly even if an exception occurs
+        finally {
+            scanner.close();
+        }
     }
 }
